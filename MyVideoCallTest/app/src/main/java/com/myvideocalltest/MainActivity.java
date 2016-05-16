@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    manager.getLinphoneCore().invite(LinphoneCoreFactory.instance().createLinphoneAddress("sip:ashwanijanghu@sip.linphone.org"));
+                    manager.getLinphoneCore().invite(LinphoneCoreFactory.instance().createLinphoneAddress("sip:rohitnimbuzz@sip.linphone.org"));
 
                 } catch (LinphoneCoreException e) {
                     Log.e(TAG, e.getMessage(), e);
@@ -80,10 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 manager.setFrontCamAsDefault();
                 LinphoneCallParams pram = call.getCurrentParamsCopy();
                 pram.setVideoEnabled(true);
-//                pram.setAudioBandwidth(0); // disable limitation
+                pram.setAudioBandwidth(0); // disable limitation
                 manager.getLinphoneCore().updateCall(call, pram);
-
-                manager.getLinphoneCore().adjustSoftwareVolume();
 
                 Log.v(TAG, "Video device id is :" + manager.getLinphoneCore().getVideoDevice());
             }
